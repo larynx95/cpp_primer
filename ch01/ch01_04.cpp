@@ -9,6 +9,7 @@ Section 1.4 Flow of Control
 ******************************************************************************/
 
 #include <iostream>
+#include <vector>
 
 int main() {
   /*
@@ -37,6 +38,13 @@ int main() {
     sum += val;  // equivalent to sum = sum + val
   std::cout << "Sum of 1 to 10 inclusive is " << sum << std::endl;
 
+  sum = 0;
+  std::vector<int> vec = {1, 2, 4, 3, 5, 6, 7};
+  for (auto elem : vec) {
+    sum += elem;
+  }
+  std::cout << "Sum: " << sum << std::endl;
+
   /*
   1.4.3. Reading an Unknown Number of Inputs
   (Exercise 1.16)
@@ -49,8 +57,13 @@ int main() {
   sum = 0;
   int value = 0;
   // read until end-of-file, calculating a running total of all values read
-  while (std::cin >> value)  // using istream as a condition
-    sum += value;            // equivalent to sum = sum + value
+  std::cout << "Enter a number (quit: 0): ";
+  while (std::cin >> value) {
+    // using istream as a condition
+    // equivalent to sum = sum + value
+    sum += value;
+    if (value == 0) break;
+  }
   std::cout << "Sum is: " << sum << std::endl;
 
   /*
@@ -59,11 +72,15 @@ int main() {
   */
 
   // currVal is the number we're counting; we'll read new values into val     
-  int currVal = 0, val = 0;
+  int currVal = 0;
+  val = 0;
   // read first number and ensure that we have data to process     
+  std::cout << "Enter current number: ";
   if (std::cin >> currVal) {
     // store the count for the current value we're processing   
+    // We already enter a value (currVal), so count start with 1
     int cnt = 1;
+    std::cout << "Enter a number (quit: 0): ";
     while (std::cin >> val) {  // read the remaining numbers
       if (val == currVal)      // if the values are the same    
         ++cnt;                 // add 1 to cnt      
@@ -72,6 +89,7 @@ int main() {
         currVal = val;  // remember the new value
         cnt = 1;        // reset the counter
       }
+      if (val == 0) break;
     }  // while loop ends here   
     // remember to print the count for the last value in the file         
     std::cout << currVal << " occurs " << cnt << " times" << std::endl;

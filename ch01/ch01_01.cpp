@@ -21,7 +21,6 @@ int main() {
   (3) the price
 
   1.1 Writing a Simple C++ Program
-
   1.1.1. Compiling and Executing Our Program
   (Exercise 1.1 ~ 1.2)
   */
