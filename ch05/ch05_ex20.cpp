@@ -12,9 +12,24 @@ message saying that no word was repeated.
 */
 
 #include <iostream>
+#include <string>
 
 int main() {
-  //
+  std::string word, prevWord;
+  bool match = false;
+
+  while (std::cin >> word) {
+    if (!prevWord.empty() && word == prevWord) {
+      match = true;
+      break;
+    }
+    prevWord = word;
+  }
+
+  if (match)
+    std::cout << word << '\n';
+  else
+    std::cout << "no word was repeated\n";
 
   return 0;
 }

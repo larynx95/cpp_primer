@@ -16,9 +16,35 @@ the output should indicate that the word now occurred three times.
 */
 
 #include <iostream>
+#include <string>
+#include <vector>
 
 int main() {
-  //
+  std::vector<std::string> words;
+  std::string str;
+
+  while (std::cin >> str) words.push_back(str);
+
+  unsigned count = 1, largestCount = 0;
+  auto it = words.begin(), wordIndex = it;
+  while (it != words.end()) {
+    // bounds check before dereferencing the next element in words
+    if (it + 1 != words.end() && *it == *(it + 1))
+      ++count;
+    else {
+      if (count > largestCount) {
+        largestCount = count;
+        wordIndex = it;
+      }
+      count = 1;  // starting a new word
+    }
+    ++it;
+  }
+
+  if (largestCount > 1)
+    std::cout << *wordIndex << " occurred " << largestCount << " times\n";
+  else
+    std::cout << "no word was repeated\n";
 
   return 0;
 }

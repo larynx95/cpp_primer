@@ -2,7 +2,8 @@
 C++ Primer, Stanley B. Lippmann, 2013
 Chapter 01. Getting Started
 
-Exercise 1.16: Write your own version of a program that prints the sum of
+Exercise 1.16:
+Write your own version of a program that prints the sum of
 a set of integers read from cin.
 
 How to read unknown number of inputs?
@@ -14,7 +15,11 @@ Ctrl+Z
 
 int main() {
   int sum = 0;
-  for (int value = 0; std::cin >> value;) sum += value;
+  std::cout << "Eneter numbers: ";
+  for (int value = 0; std::cin >> value;) {
+    if (value == 0) break;
+    sum += value;
+  }
   std::cout << sum << std::endl;
 
   return 0;

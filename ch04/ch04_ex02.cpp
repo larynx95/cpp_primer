@@ -16,6 +16,16 @@ The order is: member selector, function call, dereference.
 
 The order is: member selector, function call, dereference, add.
 
+
+(a) * (vec.begin())
+        Rules of evaluation
+                precedence: . () are equal, and * is lower than both
+                Order of associativity (left to right): . ()
+(b) (* (vec.begin()) + 1)
+        Rules of evaluation:
+                precedence: . () are equal and * + are equal but lower than . ()
+                Order of associativity (left to right): . ()
+                Order of associativity (right to left): * +
 */
 
 #include <iostream>

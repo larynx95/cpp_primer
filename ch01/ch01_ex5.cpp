@@ -2,8 +2,10 @@
 C++ Primer, Stanley B. Lippmann, 2013
 Chapter 01. Getting Started
 
-Exercise 1.5: We wrote the output in one large statement. Rewrite the
-program to use a separate statement to print each operand.
+Exercise 1.5:
+We wrote the output in one large statement.
+Rewrite the program to use a separate statement
+to print each operand.
 ******************************************************************************/
 
 #include <iostream>  // header

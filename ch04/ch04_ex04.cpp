@@ -13,6 +13,7 @@ parentheses) and printing its result.
 #include <iostream>
 
 int main() {
+  std::cout << ((((12 / 3) * 4) + (5 * 15)) + ((24 % 4) / 2)) << '\n';
   std::cout << (12 / 3 * 4 + 5 * 15 + 24 % 4 / 2);  // 91
   return 0;
 }

@@ -11,7 +11,11 @@ your system if you don’t catch an exception.
 #include <iostream>
 
 int main() {
-  //
-
+  int ival1, ival2;
+  while (std::cout << "Enter two integer numbers for division:\n" &&
+         std::cin >> ival1 >> ival2) {
+    if (!ival2) throw std::runtime_error("zero divisor");
+    std::cout << ival1 / ival2 << '\n';
+  }
   return 0;
 }
